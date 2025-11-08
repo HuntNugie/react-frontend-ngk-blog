@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-export default function Navbar () {
+const Navbar =  () => {
   return (
     <nav className="bg-gray-800 text-white p-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
       <div className="font-bold text-xl">MyBlog</div>
@@ -26,3 +26,4 @@ export default function Navbar () {
     </nav>
   );
 }
+export default Navbar;
