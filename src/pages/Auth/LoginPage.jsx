@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const LoginPage = ()=>{
     return (<>
     <section id="login" className="py-20 px-6 bg-gray-50 flex justify-center">
@@ -57,9 +59,9 @@ const LoginPage = ()=>{
     {/* Register Link */}
     <p className="text-center text-gray-600">
       Belum punya akun?{" "}
-      <a href="#register" className="text-blue-600 font-semibold hover:underline">
+      <Link to="/register" className="text-blue-600 font-semibold hover:underline">
         Daftar Sekarang
-      </a>
+      </Link>
     </p>
 
   </div>
