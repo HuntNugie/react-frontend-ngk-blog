@@ -1,6 +1,16 @@
+// import {  useState } from "react";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 const RegisterPage = () => {
+
+    const handleSubmit = async(e)=>{
+        e.preventDefault();
+        // setLoading(true);
+
+        const response = await axios.post("http://localhost:3000/api/auth/register",{nama:e.target.nama.value,email:e.target.email.value,password:e.target.password.value,confirmPass:e.target.confirmPass.value});
+
+        console.log(response.data);
+    }
     return (<>
         <section id="register" className="py-20 px-6 bg-gray-50 flex justify-center">
             <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg">
@@ -12,13 +22,14 @@ const RegisterPage = () => {
                 </p>
 
                 {/* Form */}
-                <form className="space-y-6 text-left">
+                <form className="space-y-6 text-left" onSubmit={handleSubmit} >
 
                     {/* Nama */}
                     <div>
                         <label className="block text-sm font-semibold mb-1">Nama</label>
                         <input
                             type="text"
+                            name="nama"
                             placeholder="Masukkan nama lengkap"
                             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
@@ -29,6 +40,7 @@ const RegisterPage = () => {
                         <label className="block text-sm font-semibold mb-1">Email</label>
                         <input
                             type="email"
+                            name="email"
                             placeholder="Masukkan email"
                             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
@@ -40,6 +52,7 @@ const RegisterPage = () => {
                         <input
                             type="password"
                             placeholder="Masukkan password"
+                            name="password"
                             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                     </div>
@@ -50,6 +63,7 @@ const RegisterPage = () => {
                         <input
                             type="password"
                             placeholder="Ulangi password"
+                            name="confirmPass"
                             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                     </div>
